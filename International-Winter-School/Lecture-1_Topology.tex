@@ -1,0 +1,93 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage[margin=1in]{geometry}
+\newtheorem*{definition_star}{Definition}
+\newtheorem{definition}{Definition}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Lecture 1: Topology}
+\rhead{Winter School on Gravity and Light}
+
+
+\begin{document}
+	\begin{definition_star}[Spacetime]
+		Spacetime is a four-dimensional topological manifold with a smooth
+		atlas carrying a torsion-free connection compatible with a Lorenzian
+		metric and a time orientation satisying the Einstein equations.
+	\end{definition_star}
+	The purpose of these lectures is to clarify this definition.
+
+	\section{Toplogy}
+	\noindent At the coarsest level, spacetime is a set. However, this amount of structure is
+	not enough to discuss concepts that are important to physics. Specifically, one
+	cannot discuss \textit{continuity} with only the strucutre of a set.
+
+	\noindent Why do we care about continuity? We care about continuity because in classical
+	physics ``curves to not jump.'' The trajectory of a particle does not jump around
+	in space.
+
+	\noindent How does one decide to implement a notion of continuity? Well a good place to 
+	start is to try and be as ``economical'' as possible. That is to say use the
+	weakest structure possible that captures the idea. We do this because we do not 
+	want to introduce unneccesary assumptions. In mathematics the weakest structure
+	which gives a notion of continuity is a ``topology.''
+
+	\begin{definition}
+		Let $M$ be a set. A Topology $O$ is a subset of $O \subseteq \mathscr{P}(M)$
+		satisying,
+		\begin{enumerate}
+			\item $\emptyset \in O$, $M\in O$
+			\item $\forall U,V\in O \Rightarrow U\cap V\in O$
+			\item $\forall \lambda\in\Lambda : U_\lambda\in O\Rightarrow 
+			\cup_{\lambda\in\Lambda} U_\lambda \:\in O$
+		\end{enumerate}
+	\end{definition}
+	\noindent The mneumonic people will sometimes use to remember this is that arbitrary unions
+	and finite intersections close in the topology.
+
+	\noindent\textit{Example}. $M = \{1,2,3\}$
+
+	\noindent $O_1:=\{\emptyset$, $\{1,2,3\}\}$. This is a topology on $M$.
+
+	\noindent $O_2:=\{\emptyset$, $\{1\}$, $\{2\}$, $\{1,2,3\}\}$ This is not a topology
+	because $\{1\}\cup\{2\}$ is not in $O_2$.
+	\vspace{0.25cm}	
+
+	\noindent There are two topologies that one can also create for any set $M$.
+
+	\noindent\textit{The Chaotic Topology} \\
+	$ O_{\textrm{chaotic}} := \{\emptyset, M\}$
+	
+	\noindent\textit{The Discrete Topology}\\
+	$ O_{\textrm{discrete}} := \mathscr{P}(M) $
+
+	\noindent These are extreme examples of topologies. These topologies show the maximal
+	and minimal cases, in terms of sizes of topology. In practice they are completely
+	useless. The reason for this will be clear after the definition of continuity.
+
+	\noindent\textit{Example} The standard topology. 
+	The standard topology must be defined on a set $M =\mathscr{R}^d$. Note that there 
+	are uncountable many elements in the standard topology, which means unlike
+	the previous examples, we cannot enumerate each element.
+
+	\noindent We construct the standard topology by first defining a soft ball $B_r$.
+	$$ B_r(p) := \{(q_1,...,q_d) | \sum_{i=1}^{d} (q_i-p_i)^2 < r^2\} $$
+
+	\noindent Now we say $U\in O_{standard}$ iff
+	$$ \forall p\in U: \exists r\in \mathscr{R}^+ : B_r(p) \subseteq U $$
+	\vspace{0.25cm}
+	\noindent\textit{Terminology}
+	Let $M$ be a set using (ZFC) Zermelo Frankel set theory with axiom of choice.\\
+	We call $O$ a topology.\\
+	$(M, O)$ is a topological space.\\
+	$U\in O$ we call $U$ an open set.\\
+	$M\textrm{\textbackslash} A\in O$ we call $A$ a closed set.\\
+	Note that being open does not imply anything about being closed.
+
+	\section{Continuous Maps}
+\end{document}
