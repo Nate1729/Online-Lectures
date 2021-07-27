@@ -3,6 +3,7 @@
 \usepackage{fancyhdr}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{amsmath}
 \usepackage{mathrsfs}
 \usepackage[margin=1in]{geometry}
 \newtheorem*{definition_star}{Definition}
@@ -90,4 +91,54 @@
 	Note that being open does not imply anything about being closed.
 
 	\section{Continuous Maps}
-\end{document}
+	\noindent A quick review of maps. A map $f:M\longrightarrow N$ where $M$ and $N$ are both 
+	sets and are refered to as the domain and target (co-domain) respectively. An 
+	important observation is that $f$ maps \textit{everything} in its domain. However,
+	this requirement does not apply to the target. In fact, the case where $f$ "hits"
+	every point in the target is a special type of map known as a surjection. Another
+	special type of map is where each point of the domain is mapped uniquely. Such
+	a map is called an injection or sometimes called one-to-one. It should be clear
+	that these types of maps are independent of each other. Which is why the case
+	where a map has both of these properties is given another name, bijection.
+
+	\noindent What if we asked, is $f$ continuous? The answer is: it depends. What it
+	depends on is the choice of toplogy on \textit{both} the set $M$ and $N$.
+	\begin{definition}
+		Let $(M,\mathscr{O}_M)$ and $(N,\mathscr{O}_N)$ be topological spaces. Then a 
+		map $f:M\longrightarrow N$ is called continuous (with respect to $\mathscr{O}_M)$
+		and $\mathscr{O}_N$) if
+		$$ \forall V\in \mathscr{O}_N : preim_f(V) \in \mathscr{O}_M$$
+	\end{definition}
+	\noindent A quick aside for what $preim$ means. Take a map $f:M\longrightarrow N$ and look
+	at a set $V\subseteq N$. We have the following definition,
+	$$ preim_f(V) := \{m\in M | f(m) \in V\}$$
+	It is tempting to say that $preim$ is just the inverse of a map. However,
+	this is not the case. The preimage of a map is a more general notion of inverse.
+
+	\noindent Useful mnemonic: A map is continuous if the preimages of open sets
+	are open sets.
+
+	\noindent\textit{Example} Let $M:=\{1,2\}$ and $N:=\{1,2\}$ and define
+	$f:M\longrightarrow N$ as:
+	$$ f(m):=
+	\begin{cases}
+		1 & m=2 \\
+		2 & m=1 
+	\end{cases}
+	$$
+	For the toplogies we pick $\mathscr{O}_M:=\{\emptyset, \{1\}, \{2\}, \{1,2\}\}$ 
+	and $\mathscr{O}_N:=\{\emptyset, \{1,2\}\}$. We explicitly check:
+	$$ preim_f(\emptyset) = \emptyset\in\mathscr{O}_M $$ 
+	$$ preim_f(\{1,2\}) = M \in\mathscr{O}_M $$
+	What about the map $g:N\longrightarrow M$, is this map continuous. Well
+	let's check,
+	$$ preim_f(\{1\}) = \{2\}\notin \mathscr{O}_N$$
+	Therefore $g$ is \textbf{not} continuous.
+
+	\noindent From now-on unless explicitly stated otherwise we assume the standard
+	toplogy for $\mathscr{R}^d$
+
+	\section{Composition of Continuous Maps}
+
+	
+	\end{document}
